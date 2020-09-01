@@ -7,8 +7,8 @@ Dong-wook94:
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
-  about:             |
-    백엔드 개발자가 되기 위해 공부한 내용을 업로드 합니다. 
+  about:             
+    좋은 백엔드 개발자가 되기위한 기록.
 
   # This photo will be used in the about section
   picture:
