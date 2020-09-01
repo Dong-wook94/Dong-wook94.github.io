@@ -8,6 +8,8 @@ comments: true
 
 > 기존에 운영하던 [아무코딩](https://dong-co.tistory.com/30?category=860250)에서 작성한 post입니다.
 
+
+
 자바 설치 시에는 jdk를 설치해줄 뿐만 아니라 환경변수를 설정해주는 것까지가 자바 설치라고 볼 수 있습니다.
 
  
