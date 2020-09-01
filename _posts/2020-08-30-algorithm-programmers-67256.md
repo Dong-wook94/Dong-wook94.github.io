@@ -105,4 +105,7 @@ public class Solution {
 
 
 
-문제 링크 : https://programmers.co.kr/learn/courses/30/lessons/67256?language=java
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/67256?language=java) 
+
+[소스코드 링크]([https://github.com/Dong-wook94/KNU-AlgorithmStudy/blob/master/programmers/%5B2020%20%EC%B9%B4%EC%B9%B4%EC%98%A4%20%EC%9D%B8%ED%84%B4%EC%89%BD%5D%20%ED%82%A4%ED%8C%A8%EB%93%9C%20%EB%88%84%EB%A5%B4%EA%B8%B0/%EB%8F%99%EC%9A%B1/Programmers67256.java](https://github.com/Dong-wook94/KNU-AlgorithmStudy/blob/master/programmers/[2020 카카오 인턴쉽] 키패드 누르기/동욱/Programmers67256.java))
+
