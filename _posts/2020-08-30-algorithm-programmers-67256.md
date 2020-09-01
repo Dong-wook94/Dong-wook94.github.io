@@ -3,7 +3,7 @@ layout: post
 title: "[2020 카카오 인턴십] 키패드 누르기"
 subtitle: "2020 카카오 인턴십 1번문제"
 categories: algorithm
-tags: programmers java algorithm
+tags: programmers java algorithm kakao
 comments: true
 ---
 
@@ -102,6 +102,12 @@ public class Solution {
 }
 
 ~~~
+
+## 느낀점
+
+문제 자체는 어려움이 없었지만 빠르게 풀어야 하는 문제이다. 카카오 인턴기간동안 알고리즘 문제를 다루지 않아서 인지 실제 코테때 보다 훨씬 조금 더 걸린듯 한 느낌이다. 
+
+
 
 
 
