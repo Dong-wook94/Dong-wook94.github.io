@@ -3,7 +3,7 @@ layout: post
 title: "[2020 카카오 인턴십] 동굴탐험"
 subtitle: "2020 카카오 인턴십 5번문제"
 categories: algorithm
-tags: programmers java algorithm backtracking dis
+tags: programmers java algorithm 위상정렬 topological-sort
 comments: true
 ---
 

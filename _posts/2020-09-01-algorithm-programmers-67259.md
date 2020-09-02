@@ -3,7 +3,7 @@ layout: post
 title: "[2020 카카오 인턴십] 경주로 건설"
 subtitle: "2020 카카오 인턴십 4번문제"
 categories: algorithm
-tags: programmers java algorithm backtracking dis
+tags: programmers java algorithm backtracking dfs
 comments: true
 ---
 
