@@ -5,7 +5,6 @@ subtitle: "2019 카카오 겨울 인턴십 1번문제"
 categories: algorithm
 tags: programmers java algorithm stack
 comments: true
-
 ---
 
 # 문제설명
