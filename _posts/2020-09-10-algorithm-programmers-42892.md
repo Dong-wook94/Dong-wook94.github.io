@@ -1,0 +1,224 @@
+---
+layout: post
+title: "[2019 KAKAO BLIND RECRUITMENT] 길찾기 게임"
+subtitle: "2019 카카오 기출 길찾기 게임"
+categories: algorithm
+tags: programmers java algorithm 
+comments: true
+
+---
+
+# 문제설명
+
+## 길 찾기 게임
+
+전무로 승진한 라이언은 기분이 너무 좋아 프렌즈를 이끌고 특별 휴가를 가기로 했다.
+내친김에 여행 계획까지 구상하던 라이언은 재미있는 게임을 생각해냈고 역시 전무로 승진할만한 인재라고 스스로에게 감탄했다.
+
+라이언이 구상한(그리고 아마도 라이언만 즐거울만한) 게임은, 카카오 프렌즈를 두 팀으로 나누고, 각 팀이 같은 곳을 다른 순서로 방문하도록 해서 먼저 순회를 마친 팀이 승리하는 것이다.
+
+그냥 지도를 주고 게임을 시작하면 재미가 덜해지므로, 라이언은 방문할 곳의 2차원 좌표 값을 구하고 각 장소를 이진트리의 노드가 되도록 구성한 후, 순회 방법을 힌트로 주어 각 팀이 스스로 경로를 찾도록 할 계획이다.
+
+라이언은 아래와 같은 특별한 규칙으로 트리 노드들을 구성한다.
+
+- 트리를 구성하는 모든 노드의 x, y 좌표 값은 정수이다.
+- 모든 노드는 서로 다른 x값을 가진다.
+- 같은 레벨(level)에 있는 노드는 같은 y 좌표를 가진다.
+- 자식 노드의 y 값은 항상 부모 노드보다 작다.
+- 임의의 노드 V의 왼쪽 서브 트리(left subtree)에 있는 모든 노드의 x값은 V의 x값보다 작다.
+- 임의의 노드 V의 오른쪽 서브 트리(right subtree)에 있는 모든 노드의 x값은 V의 x값보다 크다.
+
+아래 예시를 확인해보자.
+
+라이언의 규칙에 맞게 이진트리의 노드만 좌표 평면에 그리면 다음과 같다. (이진트리의 각 노드에는 1부터 N까지 순서대로 번호가 붙어있다.)
+
+![tree_3.png](https://grepp-programmers.s3.amazonaws.com/files/production/dbb58728bd/a5371669-54d4-42a1-9e5e-7466f2d7b683.jpg)
+
+이제, 노드를 잇는 간선(edge)을 모두 그리면 아래와 같은 모양이 된다.
+
+![tree_4.png](https://grepp-programmers.s3.amazonaws.com/files/production/6bd8f6496a/50e1df20-5cb7-4846-86d6-2a2f1e70c5da.jpg)
+
+위 이진트리에서 전위 순회(preorder), 후위 순회(postorder)를 한 결과는 다음과 같고, 이것은 각 팀이 방문해야 할 순서를 의미한다.
+
+- 전위 순회 : 7, 4, 6, 9, 1, 8, 5, 2, 3
+- 후위 순회 : 9, 6, 5, 8, 1, 4, 3, 2, 7
+
+다행히 두 팀 모두 머리를 모아 분석한 끝에 라이언의 의도를 간신히 알아차렸다.
+
+그러나 여전히 문제는 남아있다. 노드의 수가 예시처럼 적다면 쉽게 해결할 수 있겠지만, 예상대로 라이언은 그렇게 할 생각이 전혀 없었다.
+
+이제 당신이 나설 때가 되었다.
+
+곤경에 빠진 카카오 프렌즈를 위해 이진트리를 구성하는 노드들의 좌표가 담긴 배열 nodeinfo가 매개변수로 주어질 때,
+노드들로 구성된 이진트리를 전위 순회, 후위 순회한 결과를 2차원 배열에 순서대로 담아 return 하도록 solution 함수를 완성하자.
+
+##### 제한사항
+
+- nodeinfo는 이진트리를 구성하는 각 노드의 좌표가 1번 노드부터 순서대로 들어있는 2차원 배열이다.
+  - nodeinfo의 길이는 `1` 이상 `10,000` 이하이다.
+  - nodeinfo[i] 는 i + 1번 노드의 좌표이며, [x축 좌표, y축 좌표] 순으로 들어있다.
+  - 모든 노드의 좌표 값은 `0` 이상 `100,000` 이하인 정수이다.
+  - 트리의 깊이가 `1,000` 이하인 경우만 입력으로 주어진다.
+  - 모든 노드의 좌표는 문제에 주어진 규칙을 따르며, 잘못된 노드 위치가 주어지는 경우는 없다.
+
+------
+
+##### 입출력 예
+
+| nodeinfo                                                  | result                                    |
+| --------------------------------------------------------- | ----------------------------------------- |
+| [[5,3],[11,5],[13,3],[3,5],[6,1],[1,3],[8,6],[7,2],[2,2]] | [[7,4,6,9,1,8,5,2,3],[9,6,5,8,1,4,3,2,7]] |
+
+##### 입출력 예 설명
+
+입출력 예 #1
+
+문제에 주어진 예시와 같다.
+
+# 내가 생각하는 문제 풀이 포인트
+
+1. BST 구현
+2. preorder, postorder 구현
+
+# 코드
+
+~~~java
+import java.util.*;
+
+public class Solution {
+    public static int[][] solution(int[][] nodeinfo) {
+        int[][] answer = new int[2][nodeinfo.length];
+        List<TreeNode> treeNodeList = new ArrayList<>();
+
+        for(int i=0;i<nodeinfo.length;i++){
+            treeNodeList.add(new TreeNode(nodeinfo[i][0],nodeinfo[i][1],i+1));
+        }
+
+        Collections.sort(treeNodeList);
+
+        Tree tree = null;
+
+        for(TreeNode t : treeNodeList){
+            if(tree==null){
+                tree = new Tree(t);
+            }
+            else{
+                tree.insertNode(t);
+            }
+        }
+        if (tree != null) {
+            tree.preOrder(tree.getRoot());
+            tree.postOrder(tree.getRoot());
+
+            for(int i=0;i<nodeinfo.length;i++){
+                answer[0][i] = tree.getPreOrderList().get(i);
+                answer[1][i] = tree.getPostOrderList().get(i);
+            }
+        }
+        return answer;
+    }
+
+    static class Tree{
+        private TreeNode root;
+        private ArrayList<Integer> postOrderList;
+        private ArrayList<Integer> preOrderList;
+
+        public Tree(TreeNode root) {
+            this.root = root;
+            preOrderList = new ArrayList<>();
+            postOrderList = new ArrayList<>();
+        }
+
+        public TreeNode getRoot() {
+            return root;
+        }
+
+        public ArrayList<Integer> getPostOrderList() {
+            return postOrderList;
+        }
+
+        public ArrayList<Integer> getPreOrderList() {
+            return preOrderList;
+        }
+
+        public void insertNode(TreeNode temp){
+            TreeNode cur = this.root;
+            while(true){
+                if(cur.x>temp.x){
+                    if(cur.leftChild==null) {
+                        cur.leftChild = temp;
+                        break;
+                    }
+                    else{
+                        cur = cur.leftChild;
+                    }
+                }
+                else{//cur.x<temp.x
+                    if(cur.rightChild==null){
+                        cur.rightChild = temp;
+                        break;
+                    }
+                    else{
+                        cur = cur.rightChild;
+                    }
+                }
+            }
+        }
+
+        public void preOrder(TreeNode ptr){
+            if(ptr!=null){
+                preOrderList.add(ptr.num);
+                preOrder(ptr.leftChild);
+                preOrder(ptr.rightChild);
+            }
+        }
+        public void postOrder(TreeNode ptr){
+            if(ptr!=null){
+                postOrder(ptr.leftChild);
+                postOrder(ptr.rightChild);
+                postOrderList.add(ptr.num);
+            }
+        }
+    }
+
+
+    static class TreeNode implements Comparable{
+        int x;
+        int y;
+        int num;
+        TreeNode leftChild;
+        TreeNode rightChild;
+
+        public TreeNode(int x, int y, int num) {
+            this.x = x;
+            this.y = y;
+            this.num = num;
+            leftChild = null;
+            rightChild = null;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            TreeNode node = (TreeNode)o;
+            return node.y-this.y;//내림차
+        }
+    }
+
+    public static void main(String[] args) {
+        int[][] nodeinfo = {{5,3},{11,5},{13,3},{3,5},{6,1},{1,3},{8,6},{7,2},{2,2}};
+        int[][] result = solution(nodeinfo);
+    }
+}
+~~~
+
+
+
+# 느낀점
+
+마치 자료구조 과제 같은 문제였다. 자바로 트리를 구현해보니 한번쯤 잘 풀어본 문제 인 것 같다. 객체를 sort하는 방법을 익힐수 있었다. 
+
+Comparable인터페이스를 이용하여 구현한다. 
+
+
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42892)
