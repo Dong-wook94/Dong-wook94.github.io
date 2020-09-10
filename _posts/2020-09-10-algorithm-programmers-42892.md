@@ -82,9 +82,11 @@ comments: true
 
 # 코드
 
-~~~java
+코드삽입시 에러가 뜬다.. 
 
-~~~
+일단 티스토리 블로그에 동일 게시글을 게시해두었다.
+
+[링크](https://dong-co.tistory.com/119)
 
 
 
