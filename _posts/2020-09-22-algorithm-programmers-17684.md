@@ -3,7 +3,7 @@ layout: post
 title: "[2018 KAKAO BLIND RECRUITMENT 3차] 압축"
 subtitle: "2018 카카오 공채 3차 압축"
 categories: algorithm
-tags: baekjoon java algorithm 
+tags: programmers java algorithm 
 comments: true
 ---
 

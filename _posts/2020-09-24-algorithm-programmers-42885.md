@@ -3,7 +3,7 @@ layout: post
 title: "[프로그래머스 42885] 구명보트"
 subtitle: "프로그래머스 42885 구명보트"
 categories: algorithm
-tags: baekjoon java algorithm 
+tags: programmers java algorithm 
 comments: true
 ---
 

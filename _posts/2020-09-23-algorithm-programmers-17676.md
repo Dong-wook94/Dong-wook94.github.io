@@ -3,7 +3,7 @@ layout: post
 title: "[2018 KAKAO BLIND RECRUITMENT 1차] 추석트래픽"
 subtitle: "2018 카카오 공채 1차 추석트래픽"
 categories: algorithm
-tags: baekjoon java algorithm 
+tags: programmers java algorithm 
 comments: true
 ---
 
