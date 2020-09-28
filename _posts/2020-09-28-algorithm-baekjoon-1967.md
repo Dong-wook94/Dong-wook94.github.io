@@ -3,7 +3,7 @@ layout: post
 title: "[백준 1967] 트리의 지름"
 subtitle: "백준 1967 트리의 지름"
 categories: algorithm
-tags: baekjoo java algorithm 
+tags: baekjoon java algorithm 
 comments: true
 ---
 

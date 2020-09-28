@@ -3,7 +3,7 @@ layout: post
 title: "[백준 2458] 키 순서"
 subtitle: "백준 2458 키 순서"
 categories: algorithm
-tags: baekjoo java algorithm 
+tags: baekjoon java algorithm 
 comments: true
 ---
 
