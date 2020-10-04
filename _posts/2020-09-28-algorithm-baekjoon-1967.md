@@ -58,6 +58,9 @@ comments: true
 
 1. dfs 를 이용하여 루트노드에서 가장 먼 노드를 찾는다.
 2. 그리고 그 노드로부터 가장 먼노드를 다시 찾는다. 그 거리가 트리의 지름이다.
+3. **주의사항**
+   1. 입력이 1인상황엔 결과가 0이다. 노드가 1개일때는 지름이 0
+   2. 따로 처리하지 않을경우 런타임에러가 발생할 수 있다.
 
 # 코드
 
@@ -78,6 +81,10 @@ public class Baekjoon1967 {
 
     public static void main(String[] args) throws IOException {
         N = Integer.parseInt(br.readLine());
+        if(N==1){
+            System.out.println(0);
+            return;
+        }
         graph = new ArrayList[N+1];
         for(int i=1;i<=N;i++){
             graph[i] = new ArrayList<>();
