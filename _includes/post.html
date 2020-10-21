@@ -53,6 +53,22 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
+    <div class="col-md-12 mx-auto">
+
+      <!-- 
+      refer from 
+      - https://devinlife.com/
+      - https://github.com/allejo/jekyll-toc
+      -->
+      <aside class="sidebar__right sticky" style="height: auto !important;">
+      <div class="toc">
+        {% include toc.html html=content sanitize=true h_min=1 h_max=2 %}
+      </div>
+      </aside>
+      
+      
+      {{ content }}
+      </div>
     <script>
 
     </script>
@@ -82,3 +98,4 @@
   </div>
   <br/>
 {% endunless %}
+
