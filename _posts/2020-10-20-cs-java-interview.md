@@ -31,7 +31,7 @@ GC의 과정을 `Mark and Sweep`이라고도 합니다. GC가 스택의 모든 �
 
 
 
-## Q. String, StringBuilder, StringBuffer의 차이에 대해 설명해주세요.
+## Q2. String, StringBuilder, StringBuffer의 차이에 대해 설명해주세요.
 
 **String 객체는 immutable** 합니다.
 
@@ -43,7 +43,46 @@ StringBuilder와 StringBuffer의 차이점은 멀티쓰레드 상태에서 동�
 
 **StringBuffer은 멀티쓰레드 환경에서 동기화를 보장하지만 StringBuilder은 동기화를 보장하지 않습니다.**
 
-> 
+
+
+## Q3. String str = new String()과 String str = ""의 차이
+
+> String pool에 저장이 되느냐 그냥 heap에 따로 저장되느냐의 차이.
+
+String을 생성하는 두가지 방식
+
+1. new 연산자를 이용한 방식
+2. 리터럴을 이용한 방식
+
+Java의 Heap에는 `String Pool` 이라는 특별한 영역에서 String 객체들을 관리합니다. 이 String Pool의 실체는 `HashMap`입니다. 다음 코드와 같이 문자열 리터럴을 사용하여 String 객체를 생성하면 `String Pool`에 기존에 같은 값을 가지는 String 객체가 있는지 검사하고 있으면 그 객체의 참조값을, 없으면 String Pool에 새로 String 객체를 생성하고 그 참조값을 리턴합니다.
+
+그러므로 아래와 같은 결과를 확인할 수 있습니다. new 를 통한 객체 생성시에는 string pool에 생성되지 않고 따로 생성됩니다.
+
+```
+String a = "aaa";
+String b = "aaa";
+String c = new String("aaa");
+String d = new String("aaa");
+
+System.out.println(a==b); //true
+System.out.println(a==c);//false
+System.out.println(a==d);//false
+System.out.println(c==d);//false
+System.out.println(a.equals(b));//true
+System.out.println(a.equals(c));//true
+System.out.println(c.equals(d));//true
+```
+
+[![image](https://user-images.githubusercontent.com/36303777/96821049-28df3780-1462-11eb-9cc3-389229ad0980.png)](https://user-images.githubusercontent.com/36303777/96821049-28df3780-1462-11eb-9cc3-389229ad0980.png)
+
+
+
+## Q4. 자바의 접근 제어자
+
+- private : 외부에서 접근 불가 (다른 클래스에서 접근이 불가능 해당 클래스에서만 접근이 가능하다. )
+- default : 패키지 내에서만 접근이 가능하다. 
+- protected : 하위 클래스에서만 접근 가능
+- public : 외부에서 접근 가능
 
 
 
