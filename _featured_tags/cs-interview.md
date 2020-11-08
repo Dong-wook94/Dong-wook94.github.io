@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Network
-slug: network
+title: Interview
+slug: interview
 category: cs
 menu: false
 order: 3
