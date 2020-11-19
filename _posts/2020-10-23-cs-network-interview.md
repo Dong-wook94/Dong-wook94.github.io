@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "네트워크 면접질문 "
-subtitle: "네트워크 면접질문"
+title: "네트워크 면접주요 개념 "
+subtitle: "네트워크 면접준비"
 categories: cs
 tags: network 네트워크 cs interview 면접
 comments: true
