@@ -115,6 +115,19 @@ comments: true
 >
 > 예를들면 setter에서 유효범위를 넘은 정수가 들어왔을 때의 처리를 하고나서 set하거나 예외처리를 해버릴 수 있는 것이다. getter도 마찬가지로 굳이 예를들자면 자료에 무언가 더하거나 빼고 준다든지가 가능하다.
 
+## 객체 지향적 설계 원칙의 종류(SOLID)
+
+1. **SRP(Single Responsibility Principle) : 단일 책임 원칙**
+   클래스는 단 하나의 책임을 가져야 하며 클래스를 변경하는 이유는 단 하나의 이유이어야 합니다.
+2. **OCP(Open-Closed Principle) : 개방-폐쇄 원칙**
+   확장에는 열려 있어야 하고 변경에는 닫혀 있어야 합니다.
+3. **LSP(Liskov Substitution Principle) : 리스코프 치환 원칙**
+   상위 타입의 객체를 하위 타입의 객체로 치환해도 상위 타입을 사용하는 프로그램은 정상적으로 동작해야 합니다.
+4. **ISP(Interface Segregation Principle) : 인터페이스 분리 원칙**
+   인터페이스는 그 인터페이스를 사용하는 클라이언트를 기준으로 분리해야 합니다.
+5. **DIP(Dependency Inversion Principle) : 의존 역전 원칙**
+   고수준 모듈은 저수준 모듈의 구현에 의존해서는 안됩니다.
+
 ### Reference
 
 - https://velog.io/@cyranocoding/객체-지향-프로그래밍OOP-Object-Oriented-Programming-개념-및-활용-정리-igjyooyc6c
