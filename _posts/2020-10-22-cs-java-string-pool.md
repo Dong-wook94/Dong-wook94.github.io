@@ -3,7 +3,7 @@ layout: post
 title: "[자바] String "
 subtitle: "자바 String"
 categories: cs
-tags: java 자바 cs string-pool interview 면접
+tags: java 자바 cs
 comments: true
 ---
 
