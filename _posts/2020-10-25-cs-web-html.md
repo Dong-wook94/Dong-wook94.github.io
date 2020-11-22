@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "html의 변천사"
+title: "[Web] html의 변천사"
 subtitle: "html 변천사 "
 categories: cs
 tags: html cs html2.0 html1.1 html3.0 web
