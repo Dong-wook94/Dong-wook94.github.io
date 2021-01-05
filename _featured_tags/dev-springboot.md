@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Spring
-slug: spring
+title: SpringBoot
+slug: springboot
 category: dev
 menu: false
 order: 3
