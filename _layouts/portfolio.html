@@ -214,16 +214,25 @@ layout: null
       border-radius: 6px;
       font-size: 1rem;
       transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
     
     .skill-item:hover {
       background: #e9ecef;
     }
     
+    .skill-icon {
+      font-size: 1.5rem;
+      min-width: 2rem;
+      text-align: center;
+    }
+    
     /* Portfolio Section */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    .portfolio-list {
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -235,42 +244,52 @@ layout: null
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
+      display: flex;
+      align-items: stretch;
+      min-height: 200px;
     }
     
     .portfolio-item:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     
     .portfolio-item-image {
-      width: 100%;
-      height: 200px;
+      width: 200px;
+      min-width: 200px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 3rem;
+      font-size: 4rem;
+      flex-shrink: 0;
     }
     
     .portfolio-item-content {
-      padding: 1.5rem;
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     
     .portfolio-item h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
       color: #333;
+      font-weight: 700;
     }
     
     .portfolio-item .subtitle {
-      color: #666;
-      margin-bottom: 1rem;
-      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
     
     .portfolio-item .description {
-      color: #555;
+      color: #666;
       margin-bottom: 1rem;
       line-height: 1.6;
     }
@@ -365,6 +384,66 @@ layout: null
       color: #764ba2;
     }
     
+    /* Right Sidebar Navigation */
+    .toc-sidebar {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 200px;
+      max-height: 80vh;
+      overflow-y: auto;
+      z-index: 100;
+      display: none;
+    }
+    
+    .toc-sidebar.active {
+      display: block;
+    }
+    
+    .toc-sidebar h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #333;
+      font-weight: 700;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+    
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .toc-list li {
+      margin: 0.5rem 0;
+    }
+    
+    .toc-list a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+      display: block;
+      padding: 0.25rem 0;
+    }
+    
+    .toc-list a:hover,
+    .toc-list a.active {
+      color: #667eea;
+      font-weight: 500;
+    }
+    
+    .toc-list a.active {
+      border-left: 3px solid #667eea;
+      padding-left: 0.5rem;
+    }
+    
     /* Footer */
     .footer {
       text-align: center;
@@ -375,6 +454,12 @@ layout: null
     }
     
     /* Responsive */
+    @media (max-width: 1024px) {
+      .toc-sidebar {
+        display: none !important;
+      }
+    }
+    
     @media (max-width: 768px) {
       .intro-section h1 {
         font-size: 2.5rem;
@@ -388,8 +473,14 @@ layout: null
         font-size: 2rem;
       }
       
-      .portfolio-grid {
-        grid-template-columns: 1fr;
+      .portfolio-item {
+        flex-direction: column;
+      }
+      
+      .portfolio-item-image {
+        width: 100%;
+        min-width: 100%;
+        height: 150px;
       }
       
       .skills-grid {
@@ -434,7 +525,7 @@ layout: null
     <div class="portfolio-container">
       <!-- Summary Section -->
       {% if site.data.summary %}
-      <section class="section">
+      <section class="section" id="summary">
         <h2 class="section-title">Summary</h2>
         <div class="summary-content">
           {{ site.data.summary.summary | markdownify }}
@@ -444,7 +535,7 @@ layout: null
 
       <!-- Experience Section -->
       {% if site.data.experience %}
-      <section class="section">
+      <section class="section" id="career">
         <h2 class="section-title">Career</h2>
         {% for exp in site.data.experience.experiences %}
         <div class="experience-item">
@@ -458,14 +549,17 @@ layout: null
 
       <!-- Skills Section -->
       {% if site.data.skills %}
-      <section class="section">
+      <section class="section" id="skills">
         <h2 class="section-title">Skills</h2>
         <div class="skills-grid">
           {% if site.data.skills.languages %}
           <div class="skill-category">
             <h3>언어</h3>
             {% for skill in site.data.skills.languages %}
-            <div class="skill-item">{{ skill.name }}</div>
+            <div class="skill-item">
+              <span class="skill-icon">{{ skill.icon | default: "•" }}</span>
+              <span>{{ skill.name }}</span>
+            </div>
             {% endfor %}
           </div>
           {% endif %}
@@ -474,7 +568,10 @@ layout: null
           <div class="skill-category">
             <h3>프레임워크</h3>
             {% for skill in site.data.skills.frameworks %}
-            <div class="skill-item">{{ skill.name }}</div>
+            <div class="skill-item">
+              <span class="skill-icon">{{ skill.icon | default: "•" }}</span>
+              <span>{{ skill.name }}</span>
+            </div>
             {% endfor %}
           </div>
           {% endif %}
@@ -483,7 +580,10 @@ layout: null
           <div class="skill-category">
             <h3>데이터베이스</h3>
             {% for skill in site.data.skills.databases %}
-            <div class="skill-item">{{ skill.name }}</div>
+            <div class="skill-item">
+              <span class="skill-icon">{{ skill.icon | default: "•" }}</span>
+              <span>{{ skill.name }}</span>
+            </div>
             {% endfor %}
           </div>
           {% endif %}
@@ -492,7 +592,10 @@ layout: null
           <div class="skill-category">
             <h3>개발 도구</h3>
             {% for skill in site.data.skills.tools %}
-            <div class="skill-item">{{ skill.name }}</div>
+            <div class="skill-item">
+              <span class="skill-icon">{{ skill.icon | default: "•" }}</span>
+              <span>{{ skill.name }}</span>
+            </div>
             {% endfor %}
           </div>
           {% endif %}
@@ -502,9 +605,9 @@ layout: null
 
       <!-- Portfolio Section -->
       {% if site.projects.size > 0 %}
-      <section class="section">
+      <section class="section" id="portfolio">
         <h2 class="section-title">Portfolio</h2>
-        <div class="portfolio-grid">
+        <div class="portfolio-list">
           {% for project in site.projects %}
           <div class="portfolio-item" onclick="location.href='{{ project.url | relative_url }}'">
             <div class="portfolio-item-image">
@@ -517,7 +620,7 @@ layout: null
               {% endif %}
               {% if project.tags %}
               <div class="portfolio-tags">
-                {% for tag in project.tags limit: 3 %}
+                {% for tag in project.tags %}
                 <span class="tag">{{ tag }}</span>
                 {% endfor %}
               </div>
@@ -531,7 +634,7 @@ layout: null
 
       <!-- Awards Section -->
       {% if site.data.awards %}
-      <section class="section">
+      <section class="section" id="awards">
         <h2 class="section-title">Awards</h2>
         {% for award in site.data.awards.awards %}
         <div class="award-item">
@@ -545,7 +648,7 @@ layout: null
 
       <!-- Certifications Section -->
       {% if site.data.certifications %}
-      <section class="section">
+      <section class="section" id="certification">
         <h2 class="section-title">Certification</h2>
         {% for cert in site.data.certifications.certifications %}
         <div class="cert-item">
@@ -561,7 +664,7 @@ layout: null
 
       <!-- Education Section -->
       {% if site.data.education %}
-      <section class="section">
+      <section class="section" id="education">
         <h2 class="section-title">Education</h2>
         {% for edu in site.data.education.education %}
         <div class="education-item">
@@ -576,7 +679,7 @@ layout: null
       {% endif %}
 
       <!-- Contact Section -->
-      <section class="section contact-section">
+      <section class="section contact-section" id="contact">
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-links">
           {% if site.author.email %}
@@ -625,5 +728,76 @@ layout: null
       </div>
     </footer>
   </div>
+
+  <!-- Right Sidebar TOC -->
+  <aside class="toc-sidebar" id="toc-sidebar">
+    <h4>목차</h4>
+    <ul class="toc-list" id="toc-list">
+      {% if site.data.summary %}<li><a href="#summary">Summary</a></li>{% endif %}
+      {% if site.data.experience %}<li><a href="#career">Career</a></li>{% endif %}
+      {% if site.data.skills %}<li><a href="#skills">Skills</a></li>{% endif %}
+      {% if site.projects.size > 0 %}<li><a href="#portfolio">Portfolio</a></li>{% endif %}
+      {% if site.data.awards %}<li><a href="#awards">Awards</a></li>{% endif %}
+      {% if site.data.certifications %}<li><a href="#certification">Certification</a></li>{% endif %}
+      {% if site.data.education %}<li><a href="#education">Education</a></li>{% endif %}
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <script>
+    // TOC 표시/숨김 및 활성화
+    (function() {
+      const sections = document.querySelectorAll('.section');
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      const tocSidebar = document.getElementById('toc-sidebar');
+      
+      // 스크롤 시 TOC 표시
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 300) {
+          tocSidebar.classList.add('active');
+        } else {
+          tocSidebar.classList.remove('active');
+        }
+        
+        // 현재 섹션 하이라이트
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollTop >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+        
+        lastScrollTop = scrollTop;
+      });
+      
+      // 부드러운 스크롤
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
