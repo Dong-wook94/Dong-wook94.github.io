@@ -3,7 +3,7 @@ layout: project
 title: GS칼텍스 연동 프로젝트
 subtitle: 월 평균 GMV 1,550억 원 발생 기여(25년 4분기 평균)
 tags: [Java, SpringMVC, Oracle]
-date: 2024-11
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

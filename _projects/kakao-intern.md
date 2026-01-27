@@ -3,7 +3,7 @@ layout: project
 title: 카카오 인턴십 - AGIT 챗봇 개발
 subtitle: 직원 근태 데이터를 활용한 부재중 알림 및 부재시 알림 재공유 서비스
 tags: [MySQL, Java, SpringBoot, JPA, Gradle, SpringBatch]
-date: 2020-07
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

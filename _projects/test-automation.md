@@ -3,7 +3,7 @@ layout: project
 title: 멀티 트랜잭션 테스트 자동화 도구 개발
 subtitle: 테스트 효율성 60배 개선 및 이력 관리 체계 구축
 tags: [Java, SpringBoot, Oracle, Maven, JQuery, JS]
-date: 2025-10
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

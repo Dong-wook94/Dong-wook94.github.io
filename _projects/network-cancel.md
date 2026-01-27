@@ -3,7 +3,7 @@ layout: project
 title: 원천사 망취소 고도화 프로젝트
 subtitle: 운영 공수 연 17시간 절약, 망취소 누락 제로화(월 100건 → 0건)
 tags: [Java, Oracle, Axway]
-date: 2023-12
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

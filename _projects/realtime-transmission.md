@@ -3,7 +3,7 @@ layout: project
 title: 실시간 실적전송 리팩토링 & 고도화
 subtitle: 운영 장애 건수 제로화 (월 7~8회 → 0건), 운영 공수 월 9.5시간 단축
 tags: [Java, SpringBoot, SpringBatch, Oracle AQ]
-date: 2022-01
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

@@ -3,7 +3,7 @@ layout: project
 title: LLM 챗봇 개발 (망분리 환경)
 subtitle: 요건 분석 소요 시간을 평균 5일에서 2일로 60% 이상 단축, 25년 발생 장애 0건
 tags: [Python, FastAPI, Ollama, JS, vLLM]
-date: 2025-01
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

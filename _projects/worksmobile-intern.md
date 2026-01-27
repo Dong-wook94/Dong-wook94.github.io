@@ -3,7 +3,7 @@ layout: project
 title: WorksMobile 인턴십 - 게시판 서비스 개발
 subtitle: 관리자 기준 고객별 서비스 ON/OFF 가능한 게시판 서비스 (얼굴 인식 기능 포함)
 tags: [SpringBoot, JQuery, JS, MySQL, Java]
-date: 2020-01
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

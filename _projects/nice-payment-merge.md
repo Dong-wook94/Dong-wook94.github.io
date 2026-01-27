@@ -3,7 +3,7 @@ layout: project
 title: NICE페이먼츠 - NICE정보통신 2사 합병 프로젝트
 subtitle: 사업자번호 변경 과정에서 발생 가능한 승인 거절 이슈 사전 차단 (장애 0건)
 tags: [Java, SpringMVC, Oracle]
-date: 2025-08
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

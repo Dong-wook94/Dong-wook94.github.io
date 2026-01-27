@@ -3,7 +3,7 @@ layout: project
 title: 컨테이너 스위칭 웹 시스템 개발 및 자동전환 시스템 구현
 subtitle: 서비스 배포 소요 시간 86% 단축(15분 → 2분)
 tags: [Java, Axway, SpringMVC, Oracle, Maven]
-date: 2024-12
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

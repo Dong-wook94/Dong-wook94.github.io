@@ -3,7 +3,7 @@ layout: project
 title: 카드사 수소 충전 5자리 단가 도입 프로젝트
 subtitle: GMV 3.6억 원 발생 기여(25년 12월 기준 7,300건)
 tags: [Java, SpringMVC, Oracle]
-date: 2023-09
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요

@@ -3,7 +3,7 @@ layout: project
 title: 현대오일뱅크 연동 프로젝트
 subtitle: 타사 대비 연동 기간 1/3 미만으로 단축(18개월 → 5개월), 월 평균 GMV 252억 원 기여
 tags: [Java, SpringMVC, Oracle]
-date: 2025-05
+date: 2026-01-27
 ---
 
 ## 프로젝트 개요
