@@ -1,0 +1,414 @@
+---
+layout: base
+---
+
+<style>
+  /* 포트폴리오 페이지에서 사이드바 숨기기 */
+  #_yDrawer {
+    display: none !important;
+  }
+  
+  .right-side {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 1200px !important;
+  }
+  
+  @media screen and (min-width: 48em) {
+    .right-side {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 4rem 2rem 12rem !important;
+    }
+  }
+  
+  .portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .intro-section {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  
+  .intro-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .intro-section p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 1rem 0;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .summary-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .summary-content strong {
+    color: #4f86aa;
+    font-weight: 600;
+  }
+  
+  .skill-category {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .skill-category h3 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .skill-item {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 4px;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .portfolio-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .portfolio-item-content {
+    padding: 1.5rem;
+  }
+  
+  .portfolio-item h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .portfolio-item p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+  }
+  
+  .experience-item, .award-item, .cert-item {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid #4f86aa;
+    border-radius: 4px;
+  }
+  
+  .experience-item h3, .award-item h3, .cert-item h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .experience-item .period, .award-item .date, .cert-item .date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-section {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4f86aa;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+  }
+  
+  .contact-link:hover {
+    color: #1976d2;
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-container {
+      padding: 1rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .intro-section h1 {
+      font-size: 2rem;
+    }
+    
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="portfolio-container">
+  <!-- Introduction Section -->
+  <section class="intro-section section">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.tagline }}</p>
+    <p>{{ site.description }}</p>
+  </section>
+
+  <!-- Summary Section -->
+  {% if site.data.summary %}
+  <section class="section">
+    <h2 class="section-title">Summary</h2>
+    <div class="summary-content" style="background: #f9f9f9; padding: 2rem; border-radius: 8px; line-height: 1.8;">
+      {{ site.data.summary.summary | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Experience Section -->
+  {% if site.data.experience %}
+  <section class="section">
+    <h2 class="section-title">Overall Experiences</h2>
+    {% for exp in site.data.experience.experiences %}
+    <div class="experience-item">
+      <h3>{{ exp.title }}</h3>
+      <div class="period">{{ exp.company }} - {{ exp.period }}</div>
+      <div>{{ exp.description | markdownify }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Skills Section -->
+  {% if site.data.skills %}
+  <section class="section">
+    <h2 class="section-title">SkillSet</h2>
+    <div class="skills-grid">
+      {% if site.data.skills.languages %}
+      <div class="skill-category">
+        <h3>언어</h3>
+        {% for skill in site.data.skills.languages %}
+        <div class="skill-item">{{ skill.name }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      {% if site.data.skills.frameworks %}
+      <div class="skill-category">
+        <h3>프레임워크</h3>
+        {% for skill in site.data.skills.frameworks %}
+        <div class="skill-item">{{ skill.name }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      {% if site.data.skills.databases %}
+      <div class="skill-category">
+        <h3>데이터베이스</h3>
+        {% for skill in site.data.skills.databases %}
+        <div class="skill-item">{{ skill.name }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      {% if site.data.skills.tools %}
+      <div class="skill-category">
+        <h3>개발 도구</h3>
+        {% for skill in site.data.skills.tools %}
+        <div class="skill-item">{{ skill.name }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Portfolio Section -->
+  {% if site.projects.size > 0 %}
+  <section class="section">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      {% for project in site.projects %}
+      <div class="portfolio-item" onclick="location.href='{{ project.url | relative_url }}'">
+        {% if project.image %}
+        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+        {% else %}
+        <div style="width: 100%; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">
+          이미지 없음
+        </div>
+        {% endif %}
+        <div class="portfolio-item-content">
+          <h3>{{ project.title }}</h3>
+          {% if project.subtitle %}
+          <p>{{ project.subtitle }}</p>
+          {% endif %}
+          {% if project.description %}
+          <p>{{ project.description }}</p>
+          {% endif %}
+          {% if project.tags %}
+          <div class="portfolio-tags">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Awards Section -->
+  {% if site.data.awards %}
+  <section class="section">
+    <h2 class="section-title">Awards</h2>
+    {% for award in site.data.awards.awards %}
+    <div class="award-item">
+      <h3>{{ award.title }}</h3>
+      <div class="date">{{ award.date }}</div>
+      <p>{{ award.description }}</p>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Certifications Section -->
+  {% if site.data.certifications %}
+  <section class="section">
+    <h2 class="section-title">Certification</h2>
+    {% for cert in site.data.certifications.certifications %}
+    <div class="cert-item">
+      <h3>{{ cert.name }}</h3>
+      <div class="date">{{ cert.date }}</div>
+      {% if cert.issuer %}
+      <p>{{ cert.issuer }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Education Section -->
+  {% if site.data.education %}
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+    {% for edu in site.data.education.education %}
+    <div class="experience-item">
+      <h3>{{ edu.institution }}</h3>
+      <div class="period">{{ edu.department }} ({{ edu.period }})</div>
+      {% if edu.degree %}
+      <p>{{ edu.degree }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Contact Section -->
+  <section class="section contact-section">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-links">
+      {% if site.author.email %}
+      <a href="mailto:{{ site.author.email }}" class="contact-link">
+        <span>📧</span>
+        <span>Email</span>
+      </a>
+      {% endif %}
+      
+      {% assign author = site.data.authors.first[1] %}
+      {% if author.social %}
+        {% for link in author.social %}
+          {% assign platform = link.first %}
+          {% assign username = link.last %}
+          {% assign social_data = site.data.social[platform] %}
+          {% if username contains "//" %}
+            {% assign url = username %}
+          {% else %}
+            {% if social_data.prepend %}
+              {% assign url = username | prepend: social_data.prepend %}
+            {% else %}
+              {% assign url = username %}
+            {% endif %}
+            {% if social_data.append %}
+              {% assign url = url | append: social_data.append %}
+            {% endif %}
+          {% endif %}
+          <a href="{{ url }}" class="contact-link" target="_blank">
+            <span>{{ social_data.name | default: platform }}</span>
+          </a>
+        {% endfor %}
+      {% endif %}
+      
+      <a href="{{ site.baseurl }}/blog/" class="contact-link">
+        <span>📝</span>
+        <span>블로그</span>
+      </a>
+    </div>
+  </section>
+</div>

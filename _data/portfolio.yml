@@ -1,0 +1,31 @@
+# 포트폴리오 프로젝트 데이터
+projects:
+  - id: project1
+    title: "프로젝트 1"
+    subtitle: "프로젝트 부제목"
+    description: "프로젝트 설명을 여기에 작성하세요."
+    image: "/assets/img/project1.jpg"
+    tags: ["Java", "Spring", "MySQL"]
+    github: "https://github.com/yourusername/project1"
+    demo: "https://project1-demo.com"
+    date: "2024-01-01"
+    
+  - id: project2
+    title: "프로젝트 2"
+    subtitle: "프로젝트 부제목"
+    description: "프로젝트 설명을 여기에 작성하세요."
+    image: "/assets/img/project2.jpg"
+    tags: ["Java", "Spring Boot", "JPA"]
+    github: "https://github.com/yourusername/project2"
+    demo: ""
+    date: "2024-02-01"
+    
+  - id: project3
+    title: "프로젝트 3"
+    subtitle: "프로젝트 부제목"
+    description: "프로젝트 설명을 여기에 작성하세요."
+    image: "/assets/img/project3.jpg"
+    tags: ["Java", "Spring", "MySQL", "Redis"]
+    github: "https://github.com/yourusername/project3"
+    demo: ""
+    date: "2024-03-01"

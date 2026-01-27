@@ -1,0 +1,9 @@
+# 수상 내역 데이터
+awards:
+  - title: "우수상"
+    date: "2024.01"
+    description: "프로젝트 우수상 수상"
+    
+  - title: "장려상"
+    date: "2023.12"
+    description: "해커톤 장려상 수상"

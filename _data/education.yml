@@ -1,0 +1,6 @@
+# 학력 데이터
+education:
+  - institution: "경북대학교"
+    department: "컴퓨터학부"
+    period: "2014.03 ~ 2020.08"
+    degree: "학사"

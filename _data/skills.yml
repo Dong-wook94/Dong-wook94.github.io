@@ -1,0 +1,29 @@
+# 기술 스택 데이터
+languages:
+  - name: "Java"
+    level: "Advanced"
+  - name: "Python"
+    level: "Intermediate"
+  - name: "JavaScript"
+    level: "Intermediate"
+
+frameworks:
+  - name: "Spring"
+  - name: "Spring Boot"
+  - name: "Spring MVC"
+  - name: "Spring Batch"
+  - name: "FastAPI"
+
+databases:
+  - name: "Oracle"
+  - name: "MySQL"
+
+tools:
+  - name: "Git"
+  - name: "Jenkins"
+  - name: "Axway"
+  - name: "JQuery"
+  - name: "Maven"
+  - name: "Gradle"
+  - name: "Ollama"
+  - name: "vLLM"

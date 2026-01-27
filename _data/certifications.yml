@@ -1,0 +1,5 @@
+# 자격증 데이터
+certifications:
+  - name: "정보처리기사"
+    date: "2021.08"
+    issuer: "한국산업인력공단"
