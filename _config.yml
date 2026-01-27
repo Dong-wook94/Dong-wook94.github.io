@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               Dong-wook94
+title:               백엔드 개발자 김동욱
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -13,7 +13,7 @@ url:                 https://dong-wook94.github.io
 baseurl:             ""
 
 # A very short description of your pageㄴ
-tagline:             "백엔드 개발자가 되기위한 기록"
+tagline:             "끊임없이 효율을 추구하는 개발자"
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
