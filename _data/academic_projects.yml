@@ -5,7 +5,6 @@ projects:
     company: "카카오 인턴"
     period: "2020.07.06 ~ 2020.07.17"
     technologies: ["Spring Boot", "Java 8", "JPA", "MySQL", "Docker", "Kubernetes"]
-    github: "https://github.com/Dong-wook94"
     type: "intern"
     
   - title: "티스토리 관리자 용 통계 지표 수집 후 Daily Report 생성"
@@ -13,7 +12,6 @@ projects:
     company: "카카오 인턴"
     period: "2020.07.20 ~ 2020.08.07"
     technologies: ["Python", "Airflow", "Docker", "Kubernetes", "MySQL", "Google SpreadSheet"]
-    github: "https://github.com/Dong-wook94"
     type: "intern"
     
   - title: "고객사 위주로 커스터마이징 가능한 기업용 게시판 서비스"
@@ -48,4 +46,5 @@ projects:
     period: "2019"
     technologies: ["Amazon recognition Face Detection", "Amazon S3 bucket", "OpenCV", "Android", "FCM", "CoolSMS API", "Tensorflow", "Python"]
     github: "https://github.com/Dong-wook94/KNU-Project-IVSS"
+    awards: ["특허 등록"]
     type: "academic"

@@ -15,12 +15,12 @@ experiences:
       - 가맹점<>VAN 구간 실시간 실적전송 개발/운영
       - LLM 연동 서비스 개발/운영
       
-  - title: "Backend Developer 인턴"
+  - title: "카카오 인턴"
     company: "카카오"
     period: "2020.07 ~ 2020.08"
     description: "사내 AGIT 챗봇 개발(직원 근태 데이터를 활용한 부재중 알림 및 부재시 알림 재공유 서비스)"
     
-  - title: "인턴"
-    company: "WorksMobile"
+  - title: "웍스모바일 인턴"
+    company: "구 : WorksMobile, 현 Naver Cloud"
     period: "2020.01 ~ 2020.02"
     description: "관리자 기준 고객별 서비스 ON/OFF 가능한 게시판 서비스 개발 (메인 기능: 사진 태그시 얼굴 인식 기능 추가하여 자동으로 태그 기능 개발)"
