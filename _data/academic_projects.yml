@@ -1,0 +1,51 @@
+# 인턴 및 학부 프로젝트 데이터
+projects:
+  - title: "근무시간 알림 헬퍼 봇 구현"
+    subtitle: "부재중 근무자에 아지트 요청 시 부재중 댓글로 알림, 다시 근무 시작 시 댓글로 알림. 무중단 배포 및 카톡 알림 전송 기능 추가"
+    company: "카카오 인턴"
+    period: "2020.07.06 ~ 2020.07.17"
+    technologies: ["Spring Boot", "Java 8", "JPA", "MySQL", "Docker", "Kubernetes"]
+    github: "https://github.com/Dong-wook94"
+    type: "intern"
+    
+  - title: "티스토리 관리자 용 통계 지표 수집 후 Daily Report 생성"
+    subtitle: "티스토리 통계 지표 데이터 수집, Airflow를 이용한 매일 블로그 생성/삭제/수정 개수 등 다양한 지표 수집. 수집된 결과를 워치타워, 구글스프레드 시트로 전송. 도커 컴포즈 사용법 및 문서화"
+    company: "카카오 인턴"
+    period: "2020.07.20 ~ 2020.08.07"
+    technologies: ["Python", "Airflow", "Docker", "Kubernetes", "MySQL", "Google SpreadSheet"]
+    github: "https://github.com/Dong-wook94"
+    type: "intern"
+    
+  - title: "고객사 위주로 커스터마이징 가능한 기업용 게시판 서비스"
+    subtitle: "관리자 로그인시 추가 기능 On/OFF 기능 구현 (테이블 레코드 낭비 최소화), 파일서버 분리 및 파일 첨부 기능, 읽음 기능 구현, 자동 태그 기능 (Amazon Rekognition 활용 - 얼굴인식 API의 nxn 비교 미지원 이슈 해결을 위한 스레드 병행 처리)"
+    company: "Works Mobile 인턴"
+    period: "2020.01.06 ~ 2020.02.28"
+    technologies: ["Spring Boot", "Java 8", "Mybatis", "JSP", "Gradle", "jQuery", "Bootstrap", "MySQL", "Amazon S3", "Amazon Rekognition"]
+    github: "https://github.com/Dong-wook94/intern-2020"
+    type: "intern"
+    
+  - title: "자연어 처리를 통한 음성파일 가이드 생성 어플리케이션"
+    subtitle: "Android Server간 파일 송수신, 음성 녹음 파일을 분석하여 텍스트 - 음성파일 맵핑 서비스 지원, FCM을 통한 다운로드 데이터 정보 전달과 알림 구현"
+    company: "학부 프로젝트"
+    period: "2019"
+    technologies: ["Google Speech-to-Text (Python)", "Word Cloud", "SFTP 통신", "Android", "Firebase (FCM, FireStore)", "Room Database", "Java"]
+    github: "https://github.com/Dong-wook94/Visible-Voice"
+    awards: ["2019 SW Challenge 은상", "2019 경북대학교 코드페어 대상"]
+    type: "academic"
+    
+  - title: "미세먼지 고농도 위치정보 바탕 자율 이동 공기청정기"
+    subtitle: "Node.js를 이용한 멀티 클라이언트 서버 구축, 받아온 카메라 위치 정보를 바탕으로 RC카 이동 알고리즘 구현, 환경정보를 이용한 창문 제어"
+    company: "학부 프로젝트"
+    period: "2019"
+    technologies: ["AWS Cloud Ec2", "Web socket", "Socket.io", "Node.js", "아두이노", "OpenCV", "환경공단 미세먼지 API"]
+    github: "https://github.com/Dong-wook94/Removing_Fine_dust"
+    awards: ["LG WebOS 해커톤 2nd-RunnerUp", "Wiznet Contest 2nd Prize"]
+    type: "academic"
+    
+  - title: "AWS기반 실시간 아동폭력 감지 시스템"
+    subtitle: "AWS Rekognition을 이용한 피해자 얼굴 식별, 회원 등록 구현과 회원 등록 시 회원 이미지 collection 등록, 폭력 감지된 영상에서 사진 프레임 추출 후 서버 업로드, 알림 구현"
+    company: "학부 프로젝트 (Capston Design)"
+    period: "2019"
+    technologies: ["Amazon recognition Face Detection", "Amazon S3 bucket", "OpenCV", "Android", "FCM", "CoolSMS API", "Tensorflow", "Python"]
+    github: "https://github.com/Dong-wook94/KNU-Project-IVSS"
+    type: "academic"

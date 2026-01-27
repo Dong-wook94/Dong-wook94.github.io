@@ -1,9 +1,17 @@
 # 수상 내역 데이터
 awards:
-  - title: "우수상"
-    date: "2024.01"
-    description: "프로젝트 우수상 수상"
+  - title: "2019 경북대학교 코드페어 대상"
+    date: "2019"
+    description: "자연어 처리를 통한 음성파일 가이드 생성 어플리케이션"
     
-  - title: "장려상"
-    date: "2023.12"
-    description: "해커톤 장려상 수상"
+  - title: "2019 SW Challenge 은상"
+    date: "2019"
+    description: "자연어 처리를 통한 음성파일 가이드 생성 어플리케이션"
+    
+  - title: "LG WebOS 해커톤 2nd-RunnerUp"
+    date: "2019"
+    description: "미세먼지 고농도 위치정보 바탕 자율 이동 공기청정기"
+    
+  - title: "Wiznet Contest 2nd Prize"
+    date: "2019"
+    description: "미세먼지 고농도 위치정보 바탕 자율 이동 공기청정기"

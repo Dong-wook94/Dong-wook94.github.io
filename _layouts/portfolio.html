@@ -237,6 +237,7 @@ layout: null
       margin-top: 2rem;
     }
     
+    /* Professional Portfolio Items (업무 프로젝트) */
     .portfolio-item {
       background: white;
       border-radius: 12px;
@@ -246,17 +247,19 @@ layout: null
       cursor: pointer;
       display: flex;
       align-items: stretch;
-      min-height: 200px;
+      min-height: 250px;
+      border: 2px solid transparent;
     }
     
     .portfolio-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-color: #667eea;
     }
     
     .portfolio-item-image {
-      width: 200px;
-      min-width: 200px;
+      width: 250px;
+      min-width: 250px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       align-items: center;
@@ -267,7 +270,7 @@ layout: null
     }
     
     .portfolio-item-content {
-      padding: 2rem;
+      padding: 2.5rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -286,6 +289,103 @@ layout: null
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
       line-height: 1.7;
+    }
+    
+    /* Academic Portfolio Items (인턴/학부 프로젝트) */
+    .academic-portfolio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .academic-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      display: flex;
+      align-items: stretch;
+      min-height: 150px;
+      border-left: 4px solid #667eea;
+    }
+    
+    .academic-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .academic-item-image {
+      width: 150px;
+      min-width: 150px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+    
+    .academic-item-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .academic-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .academic-item .company {
+      color: #667eea;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .academic-item .subtitle {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .academic-item .period {
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .academic-item .awards-badge {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .academic-item .github-link {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    
+    .academic-item .github-link:hover {
+      text-decoration: underline;
     }
     
     .portfolio-item .description {
@@ -483,6 +583,16 @@ layout: null
         height: 150px;
       }
       
+      .academic-item-image {
+        width: 100%;
+        min-width: 100%;
+        height: 120px;
+      }
+      
+      .academic-item {
+        flex-direction: column;
+      }
+      
       .skills-grid {
         grid-template-columns: 1fr;
       }
@@ -603,10 +713,10 @@ layout: null
       </section>
       {% endif %}
 
-      <!-- Portfolio Section -->
+      <!-- Professional Portfolio Section (업무 프로젝트) -->
       {% if site.projects.size > 0 %}
       <section class="section" id="portfolio">
-        <h2 class="section-title">Portfolio</h2>
+        <h2 class="section-title">Professional Projects</h2>
         <div class="portfolio-list">
           {% for project in site.projects %}
           <div class="portfolio-item" onclick="location.href='{{ project.url | relative_url }}'">
@@ -624,6 +734,42 @@ layout: null
                 <span class="tag">{{ tag }}</span>
                 {% endfor %}
               </div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <!-- Academic Portfolio Section (인턴/학부 프로젝트) -->
+      {% if site.data.academic_projects %}
+      <section class="section" id="academic-portfolio">
+        <h2 class="section-title">Intern & Academic Projects</h2>
+        <div class="academic-portfolio-list">
+          {% for project in site.data.academic_projects.projects %}
+          <div class="academic-item" {% if project.github %}onclick="window.open('{{ project.github }}', '_blank')"{% endif %}>
+            <div class="academic-item-image">
+              {% if project.type == 'intern' %}💼{% else %}🎓{% endif %}
+            </div>
+            <div class="academic-item-content">
+              <div class="company">{{ project.company }}</div>
+              <h3>{{ project.title }}</h3>
+              {% if project.period %}
+              <div class="period">{{ project.period }}</div>
+              {% endif %}
+              {% if project.subtitle %}
+              <p class="subtitle">{{ project.subtitle }}</p>
+              {% endif %}
+              {% if project.awards %}
+              <div>
+                {% for award in project.awards %}
+                <span class="awards-badge">🏆 {{ award }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+              {% if project.github %}
+              <a href="{{ project.github }}" class="github-link" target="_blank" onclick="event.stopPropagation();">🔗 GitHub 보기</a>
               {% endif %}
             </div>
           </div>
@@ -682,12 +828,6 @@ layout: null
       <section class="section contact-section" id="contact">
         <h2 class="section-title">Contact Me</h2>
         <div class="contact-links">
-          {% if site.author.email %}
-          <a href="mailto:{{ site.author.email }}" class="contact-link">
-            <span>📧</span>
-            <span>Email</span>
-          </a>
-          {% endif %}
           
           {% assign author = site.data.authors.first[1] %}
           {% if author.social %}
@@ -736,7 +876,8 @@ layout: null
       {% if site.data.summary %}<li><a href="#summary">Summary</a></li>{% endif %}
       {% if site.data.experience %}<li><a href="#career">Career</a></li>{% endif %}
       {% if site.data.skills %}<li><a href="#skills">Skills</a></li>{% endif %}
-      {% if site.projects.size > 0 %}<li><a href="#portfolio">Portfolio</a></li>{% endif %}
+      {% if site.projects.size > 0 %}<li><a href="#portfolio">Professional Projects</a></li>{% endif %}
+      {% if site.data.academic_projects %}<li><a href="#academic-portfolio">Intern & 학부시절 프로젝트</a></li>{% endif %}
       {% if site.data.awards %}<li><a href="#awards">Awards</a></li>{% endif %}
       {% if site.data.certifications %}<li><a href="#certification">Certification</a></li>{% endif %}
       {% if site.data.education %}<li><a href="#education">Education</a></li>{% endif %}
